@@ -1,0 +1,26 @@
+class Products(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.CharField(max_length=100)
+    seller = models.ForeignKey(Customer)
+    min_bid = models.PositiveIntegerField(max_length=20)
+    quantity = models.IntegerField(max_length=10)
+    valid = models.BooleanField(default=False)
+    period = models.DateTimeField()
+    image = models.URLField()
+
+    objects = models.Manager()
+    unapproved = UnApprovedProductManager()
+
+    def __unicode__(self):
+        return (self.name)
+
+
+class Customer(models.Model):
+    fname = models.CharField(max_length=30)
+    lname = models.CharField(max_length=30)
+    username = models.CharField(max_length=30)
+    email = models.EmailField()
+    password = models.CharField(max_length=8)
+    verified = models.BooleanField()
+    def __unicode__(self):
+        return '%s %s' %(self.fname,self.lname)

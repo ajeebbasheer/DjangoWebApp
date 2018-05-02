@@ -1,0 +1,18 @@
+<html>
+ <head><title>{{ title }}</title>
+ </head>
+ <body style="background: #95b7b3">
+ <h1 style="color: #2b15ff"> {{ head }}</h1>
+  <marquee><b style="color: #ff110c">{{ marquee_text }}</b></marquee><br>
+    <form method = "POST" action = "" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+        {{ form }}
+        </table>
+        <p style="padding-left: 15em "><input type="submit"  value="{{ value }}" style="color: darkblue"></p>
+        {% if error %}
+        <p style="color: crimson;">{{ error_msg }}</p>
+        {% endif %}
+    </form>
+ </body>
+</html>

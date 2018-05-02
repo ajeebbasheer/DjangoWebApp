@@ -1,0 +1,34 @@
+<html>
+ <head><title>pros</title>
+ </head>
+ <body style="background: #95b7b3">
+ <h1 style="color: #2b15ff">{{ head }}</h1>
+ <p style="padding-left: 1250"><a href="/logout/"><button type="button" style="background:#82ecff"><b>logout</b></button></a></p>
+        <table>
+            <tr>
+                <td><b>product_name</b></td>
+                <td><b>description</b></td>
+                <td><b>category</b></td>
+                <td><b>image</b></td>
+                <td><b>seller</b></td>
+                <td><b>quantity</b></td>
+                <td><b>minimum_bid</b></td>
+                <td><b>bid_period</b></td>
+                <td><b>valid</b></td>
+            </tr>
+        {% for prod in products %}
+            <tr>
+                <td><a href="{{ prod.pk }}">{{ prod.product_name }}</a></td>
+                <td><a href="{{ prod.pk }}">{{ prod.description }}</a></td>
+                <td><a href="{{ prod.pk }}">{{ prod.category }}</a></td>
+                <td><a href="{{ prod.pk }}"><img src="{{media_url}}{{ prod.image }}"/></a></td>
+                <td><a href="{{ prod.pk }}">{{ prod.seller }}</a></td>
+                <td><a href="{{ prod.pk }}">{{ prod.quantity }}</a></td>
+                <td><a href="{{ prod.pk }}">{{ prod.minimum_bid }}</a></td>
+                <td><a href="{{ prod.pk }}">{{ prod.bid_period }}</a></td>
+                <td><a href="{{ prod.pk }}">{{ prod.valid }}</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+ </body>
+</html>
